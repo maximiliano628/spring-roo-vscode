@@ -1,0 +1,26 @@
+{
+    "name": "spring-roo-vscode",
+    "displayName": "spring-roo-vscode",
+    "description": "Spring Roo language support for VS Code",
+    "version": "0.0.1",
+    "publisher": "maximiliano628",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "roo",
+            "aliases": ["Spring Roo", "roo"],
+            "extensions": [".roo"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "roo",
+            "scopeName": "source.roo",
+            "path": "./syntaxes/roo.tmLanguage.json"
+        }]
+    }
+}
