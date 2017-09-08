@@ -8,7 +8,8 @@
         "vscode": "^1.15.0"
     },
     "categories": [
-        "Languages"
+        "Languages",
+        "Snippets"
     ],
     "contributes": {
         "languages": [{
@@ -21,6 +22,12 @@
             "language": "roo",
             "scopeName": "source.roo",
             "path": "./syntaxes/roo.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "roo",
+                "path": "./snippets/roo.json"
+            }
+        ]
     }
 }
