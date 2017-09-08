@@ -3,18 +3,50 @@
 	"name": "Spring Roo",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#type-definitions"
+		},
+		{
+			"include": "#field-definitions"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#command-parameters"
+		},
+		{
+			"include": "#comment"
 		}
 	],
 	"repository": {
-		"keywords": {
+		"type-definitions": {
 			"patterns": [{
 				"name": "keyword.control.roo",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "^(class|dto|embeddable|entity (jpa|projection)|enum type|interface)"
 			}]
+		},
+		"command-parameters": {
+			"patterns": [{
+				"name": "constant.numeric.roo",
+				"match": "--\\w*"
+			}]
+		},
+		"comment": {
+			"patterns": [{
+				"name": "comment.roo",
+				"match": "\/\/.*"
+			}]
+		},
+		"field-definitions": {
+			"patterns": [
+				{
+				"name": "variable.language.roo",
+				"match": "^(field \\w*|enum constant)"
+			},{
+				"name": "variable.name",
+				"match": "(?<=--fieldName) \\w*"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.roo",
