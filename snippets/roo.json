@@ -1,7 +1,59 @@
 {
 	"Insert new entity": {
-		"prefix": "entity",
+		"prefix": "ment",
 		"body": "entity jpa --class $1",
 		"description": "Insert new entity"
+	},
+	"Insert new boolean field": {
+		"prefix": "mbool",
+		"body": "field boolean --fieldName $1",
+		"description": "Insert new boolean field"
+	},
+	"Insert new date field": {
+		"prefix": "mdate",
+		"body": "field date --fieldName $1 --type ${2|java.util.Date,java.util.Calendar|} ${3|--future,--past|}",
+		"description": "Insert new boolean field"
+	},
+	"Insert new embedded field": {
+		"prefix": "memb",
+		"body": "field embedded --fieldName $1 --type $2",
+		"description": "Insert new embedded field"
+	},
+	"Insert new enum field": {
+		"prefix": "menum",
+		"body": "field enum --fieldName $1 --type $2 -enumType ${3|ORDINAL,STRING|}",
+		"description": "Insert new enum field"
+	},
+	"Insert new file field": {
+		"prefix": "mfile",
+		"body": "field file --fieldName $1 --contentType ${2|CSS,CSV,DOC,GIF,HTML,JAVASCRIPT,JPG,JSON,MP3,MP4,MPEG,PDF,PNG,TXT,XLS,XML,ZIP|} --autoUpload ${3|true,false|}",
+		"description": "Insert new file field"
+	},
+	"Insert new set field": {
+		"prefix": "mset",
+		"body": "field set --fieldName $1 --type $2 --cardinality ${3|ONE_TO_MANY,MANY_TO_MANY| --fetch ${4|LAZY,EAGER|}",
+		"description": "Insert new set field"
+	},
+	"Insert new number field": {
+		"prefix": "mnumb",
+		"body": "field number --fieldName $1 --type ${2|java.math.BigDecimal,java.math.BigInteger,byte,java.lang.Byte,double,java.lang.Double,float,java.lang.Float,int,java.lang.Integer,long,java.lang.Long,java.lang.Number,short,java.lang.Short|} --cardinality ${3|ONE_TO_MANY,MANY_TO_MANY|} --unique ${3|true,false|}",
+		"description": "Insert new number field"
+	},
+	"Insert new other field": {
+		"prefix": "moth",
+		"body": "field other --fieldName $1 --type $2",
+		"description": "Insert new other field"
+	},
+	"Insert new reference field": {
+		"prefix": "mref",
+		"body": "field reference --fieldName $1 --type $2 --cardinality ${3|ONE_TO_MANY,MANY_TO_MANY| --fetch ${4|LAZY,EAGER|}",
+		"description": "Insert new reference field"
+	},
+	"Insert new string field": {
+		"prefix": "mstr",
+		"body": "field string --fieldName $1 --sizeMin $2 --sizeMax $3",
+		"description": "Insert new string field"
 	}
 }
+
+
