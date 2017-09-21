@@ -1,0 +1,57 @@
+// A launch configuration that launches the extension inside a new window
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "name": "Launch Extension",
+            "type": "extensionHost",
+            "request": "launch",
+            "runtimeExecutable": "${execPath}",
+            "args": ["--extensionDevelopmentPath=${workspaceRoot}" ]
+        },
+        {
+			"name": "Python",
+			"type": "python",
+			"request": "launch",
+			"stopOnEntry": true,
+			"pythonPath": "C:\\Python\\Python36-32\\python.exe",
+			"program": "${file}",
+			"cwd": "${workspaceRoot}",
+			"env": {},
+			"envFile": "${workspaceRoot}/.env",
+			"debugOptions": [
+				"WaitOnAbnormalExit",
+				"WaitOnNormalExit",
+				"RedirectOutput"
+			]
+		},
+		{
+			"name": "Launch Client",
+			"type": "extensionHost",
+			"request": "launch",
+			"runtimeExecutable": "${execPath}",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceRoot}/client"
+			],
+			"sourceMaps": true,
+			"stopOnEntry": false,
+			"outFiles": [
+				"${workspaceRoot}/client/out/src/extension.js"
+			],
+			"preLaunchTask": "watch:client"
+		},
+		{
+			"name": "Attach to Server",
+			"type": "node",
+			"request": "attach",
+			"sourceMaps": true,
+			"stopOnEntry": false,
+			"port": 6009,
+			"outFiles": [
+				"${workspaceRoot}/client/server/**/*.js"
+			],
+			"protocol": "legacy",
+			"preLaunchTask": "watch:server"
+		}
+    ]
+}

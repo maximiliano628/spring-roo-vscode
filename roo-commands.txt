@@ -1,0 +1,67 @@
+!os [--command]
+backup
+cache setup [--provider --profile]
+class {--class} [--abstract --extends --implements --path --permitReservedWords --rooAnnotations --force]
+constructor [--class --fields]
+dto {--class} [--entityFormatExpression --entityFormatMessage --immutable --serializable --utilityMethods --force]
+email receiver setup (--module) [--jndiName | --host --port --protocol --username --password --starttls] [--profile --service]
+email sender setup (--module) [--jndiName | --host --port --protocol --username --password --starttls] [--profile --service]
+embeddable {--class} [--permitReservedWords --serializable]
+entity jpa {--class} (--identifierColumn --identifierStrategy --table --sequenceName --versionField --versionColumn --versionType) [--entityFormatExpression --entityFormatMessage --abstract --catalog --entityName --extends --identifierField --identifierType --implements --inheritanceType --mappedSuperclass --permitReservedWords --plural --readOnly --schema --serializable --force]
+entity projection (--all [--suffix] | --class --entity --fields [--entityFormatExpression --entityFormatMessage]) [--force]
+enum constant {--name} [--class --permitReservedWords]
+enum type {--class} [--path --permitReservedWords --force]
+equals [--class --appendSuper --excludeFields]
+exit
+field boolean {--fieldName} (--class --column [--transient]) [--assertFalse | --assertTrue] [--notNull --value --comment --primitive --permitReservedWords --force]
+field date {--fieldName --type} (--class --column [--persistenceType --transient]) [--notNull | --nullRequired] [--future | --past] [--dateTimeFormatPattern | --dateFormat --timeFormat] [--comment --value --permitReservedWords --force]
+field embedded {--fieldName --type} (--class) [--permitReservedWords --force]
+field enum {--fieldName --type} (--class --column [--transient --enumType]) [--notNull | --nullRequired] [--comment --permitReservedWords --force]
+field file {--fieldName --contentType} (--class --column) [--autoUpload --notNull --permitReservedWords --force]
+field list {--fieldName --type} (--class) (--joinColumnName --referencedColumnName | --joinTable --joinColumns --referencedColumns --inverseJoinColumns --inverseReferencedColumns) [--notNull | --nullRequired] [--mappedBy --cardinality --fetch --aggregation --comment --entityFormatExpression --entityFormatMessage --orphanRemoval --sizeMin --sizeMax --permitReservedWords --force]
+field number {--fieldName --type} (--class --column [--unique --transient]) [--nullRequired | --notNull --primitive] [--decimalMin --decimalMax --digitsInteger --digitsFraction --min --max --comment --value --permitReservedWords --force]
+field other {--fieldName --type} (--class --column [--transient]) [--notNull | --nullRequired] [--comment --value --permitReservedWords --force]
+field reference {--fieldName --type} (--class --joinColumnName --referencedColumnName [--fetch --mappedBy]) [--notNull | --nullRequired] [--aggregation --entityFormatExpression --entityFormatMessage --orphanRemoval --comment --permitReservedWords --force]
+field set {--fieldName --type} (--class) (--joinColumnName --referencedColumnName | --joinTable --joinColumns --referencedColumns --inverseJoinColumns --inverseReferencedColumns) [--notNull | --nullRequired] [--mappedBy --cardinality --fetch --aggregation --comment --entityFormatExpression --entityFormatMessage --orphanRemoval --sizeMin --sizeMax --permitReservedWords --force]
+field string {--fieldName} (--class --column [--transient --lob --unique]) [--notNull | --nullRequired] [--regexp --sizeMin --sizeMax --value --comment --permitReservedWords --force]
+finder add {--entity --name} (--formBean --returnType)
+focus {--class}
+help [--command]
+hint
+interface {--class} [--path --permitReservedWords --force]
+jms receiver {--destinationName --endpoint --jndiConnectionFactory} [--profile --force]
+jms sender {--class --destinationName --jndiConnectionFactory} [--profile --force]
+jpa audit add {--entity} (--createdDateColumn --modifiedDateColumn --createdByColumn --modifiedByColumn)
+jpa audit setup (--module)
+jpa setup {--provider} (--jndiDataSource | --database [--hostName --databaseName --userName --password]) (--module) [--force --profile]
+module create {--moduleName} [--packaging --artifactId]
+module focus {--moduleName}
+project setup {--topLevelPackage} [--multimodule | --packaging] [--projectName --java]
+property add {--key --value} (--module) [--force --profile]
+property list (--module) [--force --profile]
+property remove {--key} (--module) [--force --profile]
+push-in (--all | --package --class --method) [--force]
+quit
+repository jpa (--all [--package] | --entity --interface [--defaultReturnType])
+script {--file} [--ignoreLines --lineNumbers]
+security authorize {--class --method} (--roles | --usernames)
+security filtering {--class --method} (--roles | --usernames) [--when]
+security setup (--module) [--provider]
+service (--all [--apiPackage --implPackage] | --entity --repository --interface [--class])
+settings add {--name --value} [--force]
+settings list
+settings remove {--name}
+test integration {--class} (--module) [--permitReservedWords]
+test unit {--class} [--permitReservedWords]
+version
+web flow {--flowName} (--module) [--class]
+web mvc controller (--all | --entity ) [--responseType --package --pathPrefix]
+web mvc detail (--all | --entity [--field]) [--package --responseType --views]
+web mvc exception handler {--exception} [--class --controller --errorView]
+web mvc finder (--all | --entity [--queryMethod]) [--package --pathPrefix --responseType]
+web mvc language {--code} (--module) [--useAsDefault]
+web mvc setup (--module)
+web mvc templates setup {--type}
+web mvc view setup {--type} (--module)
+ws client {--wsdl --endpoint --class} [--binding --serviceUrl --profile]
+ws endpoint {--service --sei} [--class --config --profile --force]
