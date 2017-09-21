@@ -22,14 +22,6 @@
 		"onLanguage:roo"
 	],
 	"scripts": {
-		"installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
-		"compileServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
-		"watchServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -w -p .",
-		"vscode:prepublish": "tsc -p ./",
-		"compileClient": "tsc -p ./",
-		"watchClient": "tsc -w -p ./",
-		"update-vscode": "node ./node_modules/vscode/bin/install",
-		"postinstallClient": "node ./node_modules/vscode/bin/install",
 		"postinstall": "cd server && npm install && cd ../client && npm install && cd ..",
 		"compile": "tsc -p client/tsconfig.json && cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
 		"compile:client": "tsc -p client/tsconfig.json",
@@ -38,15 +30,10 @@
         "watch:server": "cd server && npm run installServer && cd .. && tsc -w -p server/tsconfig.json"
 	},
 	"devDependencies": {
-        "vscode": "^1.1.5",
-		"vscode-languageclient": "^3.4.2",
-		"@types/mocha": "^2.2.42",
+        "@types/mocha": "^2.2.42",
 		"@types/node": "^6.0.88",
 		"typescript": "^2.5.2"
     },
-    "dependencies": {
-		"vscode-languageserver": "^3.4.2"
-	},
     "contributes": {
         "languages": [{
             "id": "roo",
@@ -64,29 +51,6 @@
                 "language": "roo",
                 "path": "./snippets/roo.json"
             }
-        ],
-        "configuration": {
-			"type": "object",
-			"title": "Roo LSP Configuration",
-			"properties": {
-				"rooLSP.maxNumberOfProblems": {
-					"scope": "resource",
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
-				},
-				"rooLSP.trace.server": {
-					"scope": "window",
-					"type": "string",
-					"enum": [
-						"off",
-						"messages",
-						"verbose"
-					],
-					"default": "off",
-					"description": "Traces the communication between VSCode and the language server."
-				}
-			}
-		}
+        ]
     }
 }
