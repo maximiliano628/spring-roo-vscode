@@ -1,7 +1,7 @@
 {
     "name": "spring-roo-vscode",
-    "displayName": "spring-roo-vscode",
     "description": "Spring Roo language support for VS Code",
+    "displayName": "spring-roo-vscode",
     "version": "0.0.1",
     "publisher": "maximiliano628",
     "repository": {
