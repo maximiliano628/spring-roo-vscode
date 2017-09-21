@@ -9,7 +9,8 @@
 		"url": "https://github.com/maximiliano628/spring-roo-vscode"
 	},
     "engines": {
-        "vscode": "^1.16.0"
+		"vscode": "^1.16.0",
+		"node": "*"
     },
     "main": "./client/out/src/extension",
     "categories": [
@@ -21,6 +22,14 @@
 		"onLanguage:roo"
 	],
 	"scripts": {
+		"installServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json",
+		"compileServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -p .",
+		"watchServer": "installServerIntoExtension ../client ./package.json ./tsconfig.json && tsc -w -p .",
+		"vscode:prepublish": "tsc -p ./",
+		"compileClient": "tsc -p ./",
+		"watchClient": "tsc -w -p ./",
+		"update-vscode": "node ./node_modules/vscode/bin/install",
+		"postinstallClient": "node ./node_modules/vscode/bin/install",
 		"postinstall": "cd server && npm install && cd ../client && npm install && cd ..",
 		"compile": "tsc -p client/tsconfig.json && cd server && npm run installServer && cd .. && tsc -p server/tsconfig.json",
 		"compile:client": "tsc -p client/tsconfig.json",
