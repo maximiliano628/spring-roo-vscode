@@ -28,18 +28,27 @@ interface RooCompletionItems {
     options: OptionsCompletionItem[];
 }
 
+interface XCompletionItem extends CompletionItem {
+	parent: string;
+}
+
+import fs = require('fs');
+
 export default class RooCompletionHelper {
 
-    private commands: CompletionItem[];
-    private staticValueCompletionItems: OptionsCompletionItem[];
+    private json_data: string;
+    
+    private commands: XCompletionItem[];    
+    private args: XCompletionItem[];    
     
     constructor() {
-        var json = require('./roo-commands.json');
-        console.log(json);
-    }
-
-    public getCommands() : CompletionItem[] {
-        return this.commands;
+        this.json_data = fs.readFileSync('/home/maxi/Sources    /roo-commands.json','utf8');
+        
+        let completionItems = JSON.parse(this.json_data);
+        
+        // FIXME: Double iteration
+        this.commands = completionItems.filter(this.filterCommand);
+        this.args = completionItems.filter(this.filterArgs);
     }
 
     public getValueCompletionItem(type: string) : OptionsCompletionItem {
@@ -50,6 +59,27 @@ export default class RooCompletionHelper {
         }
 
         return vci;
+    }
+
+    private filterCommand(item:XCompletionItem) : boolean {
+        return item.parent == null;
+    }
+
+    private filterArgs(item:XCompletionItem) : boolean {
+        // FIXME: Why return filterCommand(item) doesn't work?
+        return item.parent != null;
+    }
+
+    public commandExists(command: string) {
+        return this.commands.find(item => item.label == command.trim()) != null;
+    }
+
+    public getCommands() : CompletionItem[] {
+        return this.commands;
+    }
+
+    public getArgs(command: string) {
+        return this.args.filter(item => item.parent == command.trim());
     }
     
 }

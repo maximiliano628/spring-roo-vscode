@@ -5,23 +5,10 @@ import {
 	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem
 } from 'vscode-languageserver';
 
-//import RooCompletionHelper from './roo-completition';
+import RooCompletionHelper from './roo-completion';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
 let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
-
-//let helper = new RooCompletionHelper();
-
-import fs = require('fs');
-let empanada = fs.readFileSync('C:\\actual\\roo-commands.json','utf8');
-
-//let resp : CompletionItem[];
-
-interface XCompletionItem extends CompletionItem {
-	parent: string;
-}
-
-let obj: XCompletionItem[] = JSON.parse(empanada);
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
@@ -29,6 +16,11 @@ let documents: TextDocuments = new TextDocuments();
 // Make the text document manager listen on the connection
 // for open, change and close text document events
 documents.listen(connection);
+
+let helper: RooCompletionHelper = new RooCompletionHelper();
+let commandRegex = new RegExp('^.*?(?=--)');
+let parameterRegex = new RegExp('--\w*');
+
 
 // After the server has started the client sends an initilize request. The server receives
 // in the passed params the rootPath of the workspace plus the client capabilites. 
@@ -105,35 +97,26 @@ connection.onDidChangeWatchedFiles((_change) => {
 	connection.console.log('We recevied an file change event');
 });
 
-// This handler provides the initial list of the completion items.
 connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	// The pass parameter contains the position of the text document in 
-	// which code complete got requested. For the example we ignore this
-	// info and always provide the same completion items.
 	let text = documents.get(_textDocumentPosition.textDocument.uri).getText();
 	let line = text.split(/\r?\n/g)[_textDocumentPosition.position.line];
 	
 	if(line.trim().length == 0) {
-		return obj.filter(
-			item => item.parent == null);
+		return helper.getCommands();
 	}
 
 	// Este anda   ^.*?(?=--)
 	// Este no     ^(\w* ){1,}(?=--)
-	let regexp = new RegExp('^.*?(?=--)');
-	let rx = regexp.exec(line);
 
-    if (rx != null && rx.length > 0) {
-		let regexp2 = new RegExp('--\w*');
+	let crx = commandRegex.exec(line);
 
-		let parts = line.split(' ');
+    if (crx != null && crx.length > 0) {
+		let command = crx[0].toString();
+		if (helper.commandExists(command)) {
+			let parameters = line.split(' ').filter(item => parameterRegex.test(item));
 
-		parts = parts.filter(item => regexp2.test(item));
-
-		let command = rx[0].toString();
-		let commandArgs = obj.filter(item => item.parent == command.trim())
-		
-		return commandArgs.filter(item => parts.indexOf(item.label) == -1);
+			return helper.getArgs(command).filter(item => parameters.indexOf(item.label) == -1);
+		}
 	}
 
 	return [];
