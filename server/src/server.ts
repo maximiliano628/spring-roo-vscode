@@ -5,6 +5,8 @@ import {
 	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem
 } from 'vscode-languageserver';
 
+import * as path from 'path';
+
 import RooCompletionHelper from './roo-completion';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
@@ -17,7 +19,7 @@ let documents: TextDocuments = new TextDocuments();
 // for open, change and close text document events
 documents.listen(connection);
 
-let helper: RooCompletionHelper = new RooCompletionHelper();
+let helper: RooCompletionHelper;
 let commandRegex = new RegExp('^.*?(?=--)');
 let parameterRegex = new RegExp('--\w*');
 
@@ -28,6 +30,8 @@ let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
 	
+	helper = new RooCompletionHelper(path.join);
+
 	return {
 		capabilities: {
 			// Tell the client that the server works in FULL text document sync mode
@@ -48,7 +52,7 @@ documents.onDidChangeContent((change) => {
 
 // The settings interface describe the server relevant settings part
 interface Settings {
-	lspSample: ExampleSettings;
+	roolsp: ExampleSettings;
 }
 
 // These are the example settings we defined in the client's package.json
@@ -63,7 +67,7 @@ let maxNumberOfProblems: number;
 // as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
-	maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
+	maxNumberOfProblems = settings.roolsp.maxNumberOfProblems || 100;
 	// Revalidate any open text documents
 	documents.all().forEach(validateTextDocument);
 });

@@ -1,9 +1,8 @@
 'use strict';
+import fs = require('fs');
+import { CompletionItem } from 'vscode-languageserver';
 
-import {
-	CompletionItem
-} from 'vscode-languageserver';
-
+/*
 enum ParameterType {
     Mandatory,
     Conditional,
@@ -26,13 +25,11 @@ interface RooCompletionItems {
     commands: CompletionItem[];
     parameters: ParameterCompletionItem[]
     options: OptionsCompletionItem[];
-}
+}*/
 
 interface XCompletionItem extends CompletionItem {
 	parent: string;
 }
-
-import fs = require('fs');
 
 export default class RooCompletionHelper {
 
@@ -41,8 +38,10 @@ export default class RooCompletionHelper {
     private commands: XCompletionItem[];    
     private args: XCompletionItem[];    
     
-    constructor() {
-        this.json_data = fs.readFileSync('/home/maxi/Sources    /roo-commands.json','utf8');
+    constructor(commandsPath: string) {
+        
+
+        this.json_data = fs.readFileSync('/home/maxi/Sources/roo-commands.json','utf8');
         
         let completionItems = JSON.parse(this.json_data);
         
@@ -51,7 +50,7 @@ export default class RooCompletionHelper {
         this.args = completionItems.filter(this.filterArgs);
     }
 
-    public getValueCompletionItem(type: string) : OptionsCompletionItem {
+    /*public getValueCompletionItem(type: string) : OptionsCompletionItem {
         let vci = this.staticValueCompletionItems.filter(item => item.type == type)[0];
         
         if (vci == null) {
@@ -59,7 +58,7 @@ export default class RooCompletionHelper {
         }
 
         return vci;
-    }
+    }*/
 
     private filterCommand(item:XCompletionItem) : boolean {
         return item.parent == null;
