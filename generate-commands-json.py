@@ -1,33 +1,44 @@
 import re
 
-replace = "{}[]()|-"
-commandRegex = re.compile('^([^(\(|\[|\{)]+)')
+commandRegex = re.compile('^\w([^--]+)')
 
-#mandatoryRegex = re.compile('{.*?}')
+# this regex matches until it finds one of the REPLACE chars
+#commandRegex = re.compile('^([^(\(|\[|\{)]+)')
+#REPLACE = "{}[]()|-"
+
+#mandatoryRegex = re.compile('\{.*?\}')
 #conditionalRegex = re.compile('\(.*?\)')
 #optionalRegex = re.compile('\[.*?\]')
 
-commands = {}
-paramteres = list()
+commands = list()
 
 def parseLine(line):
     commandWithParams = line.strip()
     m = commandRegex.match(commandWithParams)
     if not m is None:
         command = m.group().strip()
-        commands[command] = list()
-        
-        parseParameters(command, line[len(command):])
+        parameters = parseParameters(command, line[len(command):])
 
-def parseParameters(command, parameters):
-    print(command)
-    for r in replace:
-        parameters = parameters.replace(r, "")
-    
-    for p in parameters.strip().split(" "):
+        newCommand = {}
+        newCommand['command'] = command
+        if len(parameters) > 0:
+            newCommand['parameters'] = parameters
+        commands.append(newCommand)
+
+def parseParameters(command, parametersLine):
+    commandParams = list()
+
+    for p in parametersLine.strip().split(" "):
         param = p.strip()
         if param is not "":
-            print("    " + param)
+            newParam = {}
+            newParam['name'] = param[2:]
+            #newParam['valueType'] = ""
+            commandParams.append(newParam)
 
-for line in open('roo-commands.txt'):
+    return commandParams
+
+for line in open('roo-commands.basic.txt'):
     parseLine(line)
+
+print(str(commands).replace("'", "\""))

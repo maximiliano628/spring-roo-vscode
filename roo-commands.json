@@ -1,0 +1,1484 @@
+[
+    {
+        "command": "backup"
+    },
+    {
+        "command": "cache setup",
+        "parameters": [
+            {
+                "name": "provider"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "class",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "abstract"
+            },
+            {
+                "name": "extends"
+            },
+            {
+                "name": "implements"
+            },
+            {
+                "name": "path"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "rooAnnotations"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "constructor",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "fields"
+            }
+        ]
+    },
+    {
+        "command": "dto",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "immutable"
+            },
+            {
+                "name": "serializable"
+            },
+            {
+                "name": "utilityMethods"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "email receiver setup",
+        "parameters": [
+            {
+                "name": "module"
+            },
+            {
+                "name": "jndiName"
+            },
+            {
+                "name": "host"
+            },
+            {
+                "name": "port"
+            },
+            {
+                "name": "protocol"
+            },
+            {
+                "name": "username"
+            },
+            {
+                "name": "password"
+            },
+            {
+                "name": "starttls"
+            },
+            {
+                "name": "profile"
+            },
+            {
+                "name": "service"
+            }
+        ]
+    },
+    {
+        "command": "email sender setup",
+        "parameters": [
+            {
+                "name": "module"
+            },
+            {
+                "name": "jndiName"
+            },
+            {
+                "name": "host"
+            },
+            {
+                "name": "port"
+            },
+            {
+                "name": "protocol"
+            },
+            {
+                "name": "username"
+            },
+            {
+                "name": "password"
+            },
+            {
+                "name": "starttls"
+            },
+            {
+                "name": "profile"
+            },
+            {
+                "name": "service"
+            }
+        ]
+    },
+    {
+        "command": "embeddable",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "serializable"
+            }
+        ]
+    },
+    {
+        "command": "entity jpa",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "identifierColumn"
+            },
+            {
+                "name": "identifierStrategy"
+            },
+            {
+                "name": "table"
+            },
+            {
+                "name": "sequenceName"
+            },
+            {
+                "name": "versionField"
+            },
+            {
+                "name": "versionColumn"
+            },
+            {
+                "name": "versionType"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "abstract"
+            },
+            {
+                "name": "catalog"
+            },
+            {
+                "name": "entityName"
+            },
+            {
+                "name": "extends"
+            },
+            {
+                "name": "identifierField"
+            },
+            {
+                "name": "identifierType"
+            },
+            {
+                "name": "implements"
+            },
+            {
+                "name": "inheritanceType"
+            },
+            {
+                "name": "mappedSuperclass"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "plural"
+            },
+            {
+                "name": "readOnly"
+            },
+            {
+                "name": "schema"
+            },
+            {
+                "name": "serializable"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "entity projection",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "suffix"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "fields"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "enum constant",
+        "parameters": [
+            {
+                "name": "name"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "permitReservedWords"
+            }
+        ]
+    },
+    {
+        "command": "enum type",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "path"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "equals",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "appendSuper"
+            },
+            {
+                "name": "excludeFields"
+            }
+        ]
+    },
+    {
+        "command": "exit"
+    },
+    {
+        "command": "field boolean",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "assertFalse"
+            },
+            {
+                "name": "assertTrue"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "primitive"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field date",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "persistenceType"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "future"
+            },
+            {
+                "name": "past"
+            },
+            {
+                "name": "dateTimeFormatPattern"
+            },
+            {
+                "name": "dateFormat"
+            },
+            {
+                "name": "timeFormat"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field embedded",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field enum",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "enumType"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field file",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "contentType"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "autoUpload"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field list",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "joinColumnName"
+            },
+            {
+                "name": "referencedColumnName"
+            },
+            {
+                "name": "joinTable"
+            },
+            {
+                "name": "joinColumns"
+            },
+            {
+                "name": "referencedColumns"
+            },
+            {
+                "name": "inverseJoinColumns"
+            },
+            {
+                "name": "inverseReferencedColumns"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "mappedBy"
+            },
+            {
+                "name": "cardinality"
+            },
+            {
+                "name": "fetch"
+            },
+            {
+                "name": "aggregation"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "orphanRemoval"
+            },
+            {
+                "name": "sizeMin"
+            },
+            {
+                "name": "sizeMax"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field number",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "unique"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "primitive"
+            },
+            {
+                "name": "decimalMin"
+            },
+            {
+                "name": "decimalMax"
+            },
+            {
+                "name": "digitsInteger"
+            },
+            {
+                "name": "digitsFraction"
+            },
+            {
+                "name": "min"
+            },
+            {
+                "name": "max"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field other",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field reference",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "joinColumnName"
+            },
+            {
+                "name": "referencedColumnName"
+            },
+            {
+                "name": "fetch"
+            },
+            {
+                "name": "mappedBy"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "aggregation"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "orphanRemoval"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field set",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "type"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "joinColumnName"
+            },
+            {
+                "name": "referencedColumnName"
+            },
+            {
+                "name": "joinTable"
+            },
+            {
+                "name": "joinColumns"
+            },
+            {
+                "name": "referencedColumns"
+            },
+            {
+                "name": "inverseJoinColumns"
+            },
+            {
+                "name": "inverseReferencedColumns"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "mappedBy"
+            },
+            {
+                "name": "cardinality"
+            },
+            {
+                "name": "fetch"
+            },
+            {
+                "name": "aggregation"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "entityFormatExpression"
+            },
+            {
+                "name": "entityFormatMessage"
+            },
+            {
+                "name": "orphanRemoval"
+            },
+            {
+                "name": "sizeMin"
+            },
+            {
+                "name": "sizeMax"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "field string",
+        "parameters": [
+            {
+                "name": "fieldName"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "column"
+            },
+            {
+                "name": "transient"
+            },
+            {
+                "name": "lob"
+            },
+            {
+                "name": "unique"
+            },
+            {
+                "name": "notNull"
+            },
+            {
+                "name": "nullRequired"
+            },
+            {
+                "name": "regexp"
+            },
+            {
+                "name": "sizeMin"
+            },
+            {
+                "name": "sizeMax"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "comment"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "finder add",
+        "parameters": [
+            {
+                "name": "entity"
+            },
+            {
+                "name": "name"
+            },
+            {
+                "name": "formBean"
+            },
+            {
+                "name": "returnType"
+            }
+        ]
+    },
+    {
+        "command": "focus",
+        "parameters": [
+            {
+                "name": "class"
+            }
+        ]
+    },
+    {
+        "command": "help",
+        "parameters": [
+            {
+                "name": "command"
+            }
+        ]
+    },
+    {
+        "command": "hint"
+    },
+    {
+        "command": "interface",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "path"
+            },
+            {
+                "name": "permitReservedWords"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "jms receiver",
+        "parameters": [
+            {
+                "name": "destinationName"
+            },
+            {
+                "name": "endpoint"
+            },
+            {
+                "name": "jndiConnectionFactory"
+            },
+            {
+                "name": "profile"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "jms sender",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "destinationName"
+            },
+            {
+                "name": "jndiConnectionFactory"
+            },
+            {
+                "name": "profile"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "jpa audit add",
+        "parameters": [
+            {
+                "name": "entity"
+            },
+            {
+                "name": "createdDateColumn"
+            },
+            {
+                "name": "modifiedDateColumn"
+            },
+            {
+                "name": "createdByColumn"
+            },
+            {
+                "name": "modifiedByColumn"
+            }
+        ]
+    },
+    {
+        "command": "jpa audit setup",
+        "parameters": [
+            {
+                "name": "module"
+            }
+        ]
+    },
+    {
+        "command": "jpa setup",
+        "parameters": [
+            {
+                "name": "provider"
+            },
+            {
+                "name": "jndiDataSource"
+            },
+            {
+                "name": "database"
+            },
+            {
+                "name": "hostName"
+            },
+            {
+                "name": "databaseName"
+            },
+            {
+                "name": "userName"
+            },
+            {
+                "name": "password"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "force"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "module create",
+        "parameters": [
+            {
+                "name": "moduleName"
+            },
+            {
+                "name": "packaging"
+            },
+            {
+                "name": "artifactId"
+            }
+        ]
+    },
+    {
+        "command": "module focus",
+        "parameters": [
+            {
+                "name": "moduleName"
+            }
+        ]
+    },
+    {
+        "command": "project setup",
+        "parameters": [
+            {
+                "name": "topLevelPackage"
+            },
+            {
+                "name": "multimodule"
+            },
+            {
+                "name": "packaging"
+            },
+            {
+                "name": "projectName"
+            },
+            {
+                "name": "java"
+            }
+        ]
+    },
+    {
+        "command": "property add",
+        "parameters": [
+            {
+                "name": "key"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "force"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "property list",
+        "parameters": [
+            {
+                "name": "module"
+            },
+            {
+                "name": "force"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "property remove",
+        "parameters": [
+            {
+                "name": "key"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "force"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "push",
+        "parameters": [
+            {
+                "name": "n"
+            },
+            {
+                "name": "all"
+            },
+            {
+                "name": "package"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "method"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "quit"
+    },
+    {
+        "command": "repository jpa",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "package"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "interface"
+            },
+            {
+                "name": "defaultReturnType"
+            }
+        ]
+    },
+    {
+        "command": "script",
+        "parameters": [
+            {
+                "name": "file"
+            },
+            {
+                "name": "ignoreLines"
+            },
+            {
+                "name": "lineNumbers"
+            }
+        ]
+    },
+    {
+        "command": "security authorize",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "method"
+            },
+            {
+                "name": "roles"
+            },
+            {
+                "name": "usernames"
+            }
+        ]
+    },
+    {
+        "command": "security filtering",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "method"
+            },
+            {
+                "name": "roles"
+            },
+            {
+                "name": "usernames"
+            },
+            {
+                "name": "when"
+            }
+        ]
+    },
+    {
+        "command": "security setup",
+        "parameters": [
+            {
+                "name": "module"
+            },
+            {
+                "name": "provider"
+            }
+        ]
+    },
+    {
+        "command": "service",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "apiPackage"
+            },
+            {
+                "name": "implPackage"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "repository"
+            },
+            {
+                "name": "interface"
+            },
+            {
+                "name": "class"
+            }
+        ]
+    },
+    {
+        "command": "settings add",
+        "parameters": [
+            {
+                "name": "name"
+            },
+            {
+                "name": "value"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    },
+    {
+        "command": "settings list"
+    },
+    {
+        "command": "settings remove",
+        "parameters": [
+            {
+                "name": "name"
+            }
+        ]
+    },
+    {
+        "command": "test integration",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "permitReservedWords"
+            }
+        ]
+    },
+    {
+        "command": "test unit",
+        "parameters": [
+            {
+                "name": "class"
+            },
+            {
+                "name": "permitReservedWords"
+            }
+        ]
+    },
+    {
+        "command": "version"
+    },
+    {
+        "command": "web flow",
+        "parameters": [
+            {
+                "name": "flowName"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "class"
+            }
+        ]
+    },
+    {
+        "command": "web mvc controller",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "responseType"
+            },
+            {
+                "name": "package"
+            },
+            {
+                "name": "pathPrefix"
+            }
+        ]
+    },
+    {
+        "command": "web mvc detail",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "field"
+            },
+            {
+                "name": "package"
+            },
+            {
+                "name": "responseType"
+            },
+            {
+                "name": "views"
+            }
+        ]
+    },
+    {
+        "command": "web mvc exception handler",
+        "parameters": [
+            {
+                "name": "exception"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "controller"
+            },
+            {
+                "name": "errorView"
+            }
+        ]
+    },
+    {
+        "command": "web mvc finder",
+        "parameters": [
+            {
+                "name": "all"
+            },
+            {
+                "name": "entity"
+            },
+            {
+                "name": "queryMethod"
+            },
+            {
+                "name": "package"
+            },
+            {
+                "name": "pathPrefix"
+            },
+            {
+                "name": "responseType"
+            }
+        ]
+    },
+    {
+        "command": "web mvc language",
+        "parameters": [
+            {
+                "name": "code"
+            },
+            {
+                "name": "module"
+            },
+            {
+                "name": "useAsDefault"
+            }
+        ]
+    },
+    {
+        "command": "web mvc setup",
+        "parameters": [
+            {
+                "name": "module"
+            }
+        ]
+    },
+    {
+        "command": "web mvc templates setup",
+        "parameters": [
+            {
+                "name": "type"
+            }
+        ]
+    },
+    {
+        "command": "web mvc view setup",
+        "parameters": [
+            {
+                "name": "type"
+            },
+            {
+                "name": "module"
+            }
+        ]
+    },
+    {
+        "command": "ws client",
+        "parameters": [
+            {
+                "name": "wsdl"
+            },
+            {
+                "name": "endpoint"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "binding"
+            },
+            {
+                "name": "serviceUrl"
+            },
+            {
+                "name": "profile"
+            }
+        ]
+    },
+    {
+        "command": "ws endpoint",
+        "parameters": [
+            {
+                "name": "service"
+            },
+            {
+                "name": "sei"
+            },
+            {
+                "name": "class"
+            },
+            {
+                "name": "config"
+            },
+            {
+                "name": "profile"
+            },
+            {
+                "name": "force"
+            }
+        ]
+    }
+]
