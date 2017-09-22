@@ -5,7 +5,7 @@ import {
 	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem
 } from 'vscode-languageserver';
 
-import * as path from 'path';
+//import * as path from 'path';
 
 import RooCompletionHelper from './roo-completion';
 
@@ -23,14 +23,15 @@ let helper: RooCompletionHelper;
 let commandRegex = new RegExp('^.*?(?=--)');
 let parameterRegex = new RegExp('--\w*');
 
-
 // After the server has started the client sends an initilize request. The server receives
 // in the passed params the rootPath of the workspace plus the client capabilites. 
 let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
 	
-	helper = new RooCompletionHelper(path.join(workspaceRoot, "resources", "roo-commands.json"));
+	console.log("params:" + workspaceRoot)
+
+	//helper = new RooCompletionHelper(path.join("resources", "roo-commands.json"));
 
 	return {
 		capabilities: {
@@ -59,15 +60,22 @@ interface Settings {
 // file
 interface ExampleSettings {
 	maxNumberOfProblems: number;
+	commandsPath: string;
 }
 
 // hold the maxNumberOfProblems setting
 let maxNumberOfProblems: number;
+let commandsPath: string;
 // The settings have changed. Is send on server activation
 // as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
 	maxNumberOfProblems = settings.roolsp.maxNumberOfProblems || 100;
+	commandsPath = settings.roolsp.commandsPath;
+
+	console.log(commandsPath);
+
+	helper = new RooCompletionHelper("");
 	// Revalidate any open text documents
 	documents.all().forEach(validateTextDocument);
 });

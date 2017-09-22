@@ -6,35 +6,68 @@
 
 import * as path from 'path';
 
-import { workspace, ExtensionContext } from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
+import { workspace, ExtensionContext, WorkspaceConfiguration } from 'vscode';
+import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, CancellationToken, Middleware, Proposed, ProposedFeatures } from 'vscode-languageclient';
+
+interface ExampleSettings {
+	maxNumberOfProblems: number;
+	commandsPath: string;
+}
 
 export function activate(context: ExtensionContext) {
 
 	let serverModule = context.asAbsolutePath(path.join('server', 'server.js'));
 	let debugOptions = { execArgv: ["--nolazy", "--debug=6009"] };
 	
+	let commands = context.asAbsolutePath(path.join('resources', 'roo-commands.js'));
+
 	let serverOptions: ServerOptions = {
-		run : { module: serverModule, transport: TransportKind.ipc, options: debugOptions },
-		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
+		run : { module: serverModule, transport: TransportKind.ipc, args:[commands], options: debugOptions },
+		debug: { module: serverModule, transport: TransportKind.ipc, args:[commands], options: debugOptions }
 	}
 	
-	// Options to control the language client
+	let middleware: ProposedFeatures.ConfigurationMiddleware | Middleware = {
+		workspace: {
+			configuration: (params: Proposed.ConfigurationParams, _token: CancellationToken, _next: Function): any[] => {
+				if (!params.items) {
+					return null;
+				}
+				let result: (ExampleSettings | null)[] = [];
+				for (let item of params.items) {
+					// The server asks the client for configuration settings without a section
+					// If a section is present we return null to indicate that the configuration
+					// is not supported.
+					if (item.section) {
+						result.push(null);
+						continue;
+					}
+					let config: WorkspaceConfiguration;
+					if (item.scopeUri) {
+						//config = workspace.getConfiguration('roolsp', client.protocol2CodeConverter.asUri(item.scopeUri));
+					} else {
+						config = workspace.getConfiguration('roolsp');
+					}
+					let newConf = {
+						maxNumberOfProblems: 1000,
+						commandsPath: commands
+					};
+					result.push(newConf);
+				}
+				return result;
+			}
+		}
+	};
+
 	let clientOptions: LanguageClientOptions = {
-		// Register the server for plain text documents
 		documentSelector: [{scheme: 'file', language: 'roo'}],
 		synchronize: {
-			// Synchronize the setting section 'languageServerExample' to the server
-			configurationSection: 'lspSample',
-			// Notify the server about file changes to '.clientrc files contain in the workspace
+			configurationSection: 'roolsp',
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
-		}
+		},
+		middleware: middleware as Middleware
 	}
 	
-	// Create the language client and start the client.
-	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
+	let disposable = new LanguageClient('roolsp', 'Roo Language Server', serverOptions, clientOptions).start();
 	
-	// Push the disposable to the context's subscriptions so that the 
-	// client can be deactivated on extension deactivation
 	context.subscriptions.push(disposable);
 }
