@@ -28,6 +28,6 @@ def parseParameters(command, parameters):
         param = p.strip()
         if param is not "":
             print("    " + param)
-//
+
 for line in open('roo-commands.txt'):
-      parseLine(line)
+    parseLine(line)
