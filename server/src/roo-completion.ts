@@ -41,7 +41,7 @@ export default class RooCompletionHelper {
     constructor(commandsPath: string) {
         
 
-        this.json_data = fs.readFileSync('/home/maxi/Sources/roo-commands.json','utf8');
+        this.json_data = fs.readFileSync(commandsPath,'utf8');
         
         let completionItems = JSON.parse(this.json_data);
         

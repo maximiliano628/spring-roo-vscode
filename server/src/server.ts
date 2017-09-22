@@ -30,7 +30,7 @@ let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
 	
-	helper = new RooCompletionHelper(path.join);
+	helper = new RooCompletionHelper(path.join(workspaceRoot, "resources", "roo-commands.json"));
 
 	return {
 		capabilities: {
